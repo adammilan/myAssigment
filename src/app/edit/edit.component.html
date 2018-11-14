@@ -1,0 +1,77 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{movie.Title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form #ref='ngForm' (ngSubmit)='onSubmit(ref,modal)'>
+      <div class="form-group">
+        <label for="year"><b>Year</b></label>
+        <input type="text" class="form-control" [(ngModel)]="model.year" #year="ngModel" name="year" required />
+        <div *ngIf="ref.submitted && year.invalid">
+          <div *ngIf="year.errors.required" class="alert alert-danger">
+            Year is required
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="title"><b>Title</b></label>
+        <input type="text" class="form-control" [(ngModel)]="model.title" #title="ngModel" name="title" id="title"
+          required />
+        <div *ngIf="ref.submitted && title.invalid">
+          <div *ngIf="title.errors.required" class="alert alert-danger">
+            Title is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="runtime"><b>Runtime</b></label>
+        <input type="text" class="form-control" name="runtime" [(ngModel)]="model.runtime" #runtime="ngModel" id="runtime"
+          required />
+        <div *ngIf="ref.submitted && runtime.invalid">
+          <div *ngIf="runtime.errors.required" class="alert alert-danger">
+            Runtime is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="genere"><b>Genre</b></label>
+        <input type="text" name="genere" [(ngModel)]="model.genere" #genere="ngModel" class="form-control" id="genere"
+          required />
+        <div *ngIf="ref.submitted && genere.invalid">
+          <div *ngIf="genere.errors.required" class="alert alert-danger">
+            Genre is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="director"><b>Director</b></label>
+        <input type="text" class="form-control" name="director" [(ngModel)]="model.director" #director="ngModel" id="director"
+          required />
+        <div *ngIf="ref.submitted && director.invalid">
+          <div *ngIf="director.errors.required" class="alert alert-danger">
+            Director is required
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden">
+        <input type="text" class="form-control" name="id" [(ngModel)]="model.id" #id="ngModel" id="id" required />
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
+      </div>
+    </form>
+
+  </div>
+
+</ng-template>
+
+<button class="btn btn-lg btn-secondary" (click)="open(content)">Edit</button>

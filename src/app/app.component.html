@@ -1,0 +1,30 @@
+<div *ngIf='movies' class="container-fluid">
+    <div class="main-box ">
+        <app-add class="add"></app-add>
+        <button class="btn btn-lg btn-outline-primary" (click)='toggleImage()'> {{showImage ? 'Hide': 'Show'}} Images
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6" *ngFor='let movie of movies'>
+
+            <ul class="text-center list-group">
+                <li class="list-group-item list-group-item-action line">
+                    <span class="inner-line">
+                        <app-edit [movie]='movie'></app-edit>
+                        <h5>Title : {{movie.Title}}</h5>
+                        <app-delete [movietoDel]='movie'></app-delete>
+                    </span>
+
+                </li>
+                <li class="list-group-item"><b>Year:</b> {{movie.Year}}</li>
+                <li class="list-group-item"><b>Runtime:</b> {{movie.Runtime}}</li>
+                <li class="list-group-item"><b>Genere:</b> {{movie.Genre}}</li>
+                <li class="list-group-item"><b>Director:</b> {{movie.Director}}</li>
+                <li class="list-group-item">
+                    <img *ngIf="showImage" class="poster" [src]='movie.Poster' [title]='movie.Title' [style.width.px]='imageWidth'
+                        [style.height.px]='imageHeight' />
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

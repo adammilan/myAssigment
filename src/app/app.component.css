@@ -1,0 +1,29 @@
+
+.pad{
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+
+.list-group-item:last-child{
+    min-height:300px;
+}
+
+h5{
+    display:inline-block;
+}
+.line{
+    background:#135295;
+    color:white;
+}
+
+.inner-line{
+    display:flex;
+    justify-content: space-between;
+}
+.main-box{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
